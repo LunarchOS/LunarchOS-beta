@@ -30,15 +30,13 @@ It boots in real BIOS (or via emulator like QEMU), supports simple shell command
 
 ### 1. Assemble the OS
 
-```bash
 nasm -f bin bootloader.asm -o os.bin
 
 ### 2. Create a bootable floppy image (2 sectors = 1024 bytes)
 
-```bash
+
 dd if=os.bin of=os.img bs=512 count=2
 
 ### 3. Boot with QEMU
 
-```bash
 qemu-system-i386 -fda os.img
